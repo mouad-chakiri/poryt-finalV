@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!--  Font awsome v6.1.1  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!--  bootsrat v4.6.1  -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    
+    <!-- Jquery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Style created by me-->
+    <link rel="stylesheet" href="/css/portfolio/style.css">
+    <link crossorigin="anonymous" href="https://unpkg.com/swiper/swiper-bundle.min.css" rel="stylesheet"/>
+    <title>Portfolio</title>
+</head>
+<body>
+
+    <!--Header Section-->
+    <header class="header">
+        <div class="max-width">
+                <h3 class="logo"><a href="#"><span>M</span>ajdoul <span>R</span>adouane</a></h3>
+                <ul class="menu">
+                    <li><a href="#main" class="active">HOME</a></li>
+                    <li><a href="#aboutMe">ABOUT ME</a></li>
+                    <li><a href="#parcour">CAREER</a></li>
+                    <li><a href="#recherche">RESEARCHES</a></li>
+                    <li><a href="#contact">CONTACTEZ MOI</a></li>
+                    <li><a th:href="@{cours}" class="cour">COURS</a></li>
+        </ul>
+        <div class="header-btn">
+            <i class="fas fa-bars"></i>
+        </div>
+    </div>
+    </header>
+
+    <!--Hero Section -->
+    <section class="heroSection" id="main">
+        <div class="max-width flex reveal">
+            <div class="hero-content">
+                <div class="helloText">Bonjour, je suis  </div>
+                <div class="nameText">Majdoul Radouane</div>
+                <div class="descriptionText">professeur chercheur</div>
+                
+                <div class="btnSection">
+                    <a href="#contact" class="contactMeBTN">contactez moi<i class="fa-solid fa-message" style="margin-left: 13px;"></i></a>
+                    <a th:href="@{cours}" class="seeMyCour">voir mes cours<i class="fa-solid fa-arrow-right" style="margin-left: 13px;"></i></a>
+                </div>
+            </div>
+            <div class="imageContainer">
+                <img src="/image/222.png" class="heroImage"/>
+            </div>
+            <div class="scrollDown" style="text-align: center;">
+            <i class="fa-solid fa-computer-mouse"></i><br>
+            <span>scroll down</span>
+        	</div>
+        </div>
+        
+    </section>
+
+    <!--About me -->
+    <section id="aboutMe" class="aboutMe">
+        <div class="max-width reveal">
+            <h2 class="title ">About me</h2>
+            <div class="about-content">
+                <div class="column left revealXleft">
+                    <img src="/image/heroImage1.jpg" alt="aboutMeImage">
+                </div>
+                <div class="column right revealXright">
+                    <div class="text">I'm Radouane majdoule <span>Prof</span></div>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum unde dolor quo iure porro culpa, dicta, consequatur facere quaerat laboriosam nobis magnam quas corporis explicabo officiis doloremque, assumenda eos? Quo. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel sapiente et maxime commodi itaque alias amet, molestias incidunt rerum dolore! Commodi magnam repellat distinctio omnis voluptate cumque facere odio tempora!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--PARCOUR -->
+    <section id="parcour" class="parcour">
+        <div class="max-width reveal">
+            <h2 class="title bigTitle">Career</h2>
+            <!----------------------------------------->
+            <div class="timeline">
+        <div class="outer reveal">
+          <div class="card">
+            <div class="info">
+              <h3 class="titleTimeLine">Title 1</h3>
+              <h5 class="dateParcour">Februray 2020</h5>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+            </div>
+          </div>
+          <div class="card reveal">
+            <div class="info">
+              <h3 class="titleTimeLine">Title 2</h3>
+              <h5 class="dateParcour">Februray 2020</h5>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+            </div>
+          </div>
+          <div class="card reveal">
+            <div class="info">
+              <h2 class="titleTimeLine">Title 3</h2>
+              <h5 class="dateParcour">Februray 2020</h5>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+            </div>
+          </div>
+          <div class="card reveal">
+            <div class="info">
+              <h3 class="titleTimeLine">Title 4</h3>
+              <h5 class="dateParcour">Februray 2020</h5>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+            </div>
+          </div>
+          <div class="card reveal">
+            <div class="info">
+              <h3 class="titleTimeLine">Title 5</h3>
+              <h5 class="dateParcour">Februray 2020</h5>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+            </div>
+          </div>
+        </div>
+      </div>
+            <!----------------------------------------->
+
+
+            </div>
+        </div>
+    </section>
+
+
+    <!--La recherche -->
+    <section id="recherche" class="recherche">
+        <div class="max-width reveal">
+            <h2 class="title">Researches</h2>
+            <div class="recherche-content">
+              <div class="bg-gray-100">
+                <div class="px-4 py-16 mx-auto sm:px-6 lg:pl-8 lg:pr-0 lg:mr-0 sm:py-24 max-w-[1340px]" >
+                  <div class="grid grid-cols-1 lg:grid-cols-3 lg:gap-x-16 gap-y-8 lg:items-center" >
+                    <div class="max-w-xl text-center sm:text-left">
+                      <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">
+                        Don't just take our word for it...
+                        <br class="hidden sm:block lg:hidden" />
+                        Read reviews from our customers
+                      </h2>
+              
+                      <p class="mt-4 text-gray-500">
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptas
+                        veritatis illo placeat harum porro optio fugit a culpa sunt id!
+                      </p>
+              
+                      <div class="hidden lg:mt-8 lg:flex lg:gap-4">
+                        <button aria-label="Previous slide" class="p-3 text-blue-600 border border-blue-600 rounded-full hover:bg-blue-600 hover:text-white prev-button" >
+                          <svg class="w-5 h-5 transform -rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" >
+                            <path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+                          </svg>
+                        </button>
+              
+                        <button aria-label="Next slide" class="p-3 text-blue-600 border border-blue-600 rounded-full hover:bg-blue-600 hover:text-white next-button" >
+                          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" >
+                            <path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
+              
+                    <div class="-mx-6 lg:col-span-2 lg:mx-0">
+                      <div class="swiper-container">
+                        <ul class="swiper-wrapper">
+                          <li class="swiper-slide">
+                            <blockquote
+                              class="flex flex-col justify-between h-full p-12 bg-white"
+                            >
+                              <div>
+                                <div class="mt-4">
+                                  <p class="text-2xl font-bold text-blue-600 sm:text-3xl">
+                                    Stayin' Alive
+                                  </p>
+              
+                                  <p class="mt-4 leading-relaxed text-gray-500">
+                                    No, Rose, they are not breathing. And they have no arms or
+                                    legs … Where are they? You know what? If we come across
+                                    somebody with no arms or legs, do we bother resuscitating
+                                    them? I mean, what quality of life do we have there?
+                                  </p>
+                                </div>
+                              </div>
+              
+                              <footer class="mt-8 text-sm text-gray-500">
+                                &mdash; Michael Scott
+                              </footer>
+                            </blockquote>
+                          </li>
+              
+                          <li class="swiper-slide">
+                            <blockquote
+                              class="flex flex-col justify-between h-full p-12 bg-white"
+                            >
+                              <div>
+                                <div class="mt-4">
+                                  <p class="text-2xl font-bold text-blue-600 sm:text-3xl">
+                                    Stayin' Alive
+                                  </p>
+              
+                                  <p class="mt-4 leading-relaxed text-gray-500">
+                                    No, Rose, they are not breathing. And they have no arms or
+                                    legs … Where are they? You know what? If we come across
+                                    somebody with no arms or legs, do we bother resuscitating
+                                    them? I mean, what quality of life do we have there?
+                                  </p>
+                                </div>
+                              </div>
+              
+                              <footer class="mt-8 text-sm text-gray-500">
+                                &mdash; Michael Scott
+                              </footer>
+                            </blockquote>
+                          </li>
+              
+                          <li class="swiper-slide">
+                            <blockquote
+                              class="flex flex-col justify-between h-full p-12 bg-white"
+                            >
+                              <div>
+                                <div class="mt-4">
+                                  <p class="text-2xl font-bold text-blue-600 sm:text-3xl">
+                                    Stayin' Alive
+                                  </p>
+              
+                                  <p class="mt-4 leading-relaxed text-gray-500">
+                                    No, Rose, they are not breathing. And they have no arms or
+                                    legs … Where are they? You know what? If we come across
+                                    somebody with no arms or legs, do we bother resuscitating
+                                    them? I mean, what quality of life do we have there?
+                                  </p>
+                                </div>
+                              </div>
+              
+                              <footer class="mt-8 text-sm text-gray-500">
+                                &mdash; Michael Scott
+                              </footer>
+                            </blockquote>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+              
+                  <div class="flex justify-center gap-4 mt-8 lg:hidden">
+                    <button
+                      aria-label="Previous slide"
+                      class="p-4 text-blue-600 border border-blue-600 rounded-full hover:bg-blue-600 hover:text-white prev-button"
+                    >
+                      <svg
+                        class="w-5 h-5 transform -rotate-180"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M9 5l7 7-7 7"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                        />
+                      </svg>
+                    </button>
+              
+                    <button
+                      aria-label="Next slide"
+                      class="p-4 text-blue-600 border border-blue-600 rounded-full hover:bg-blue-600 hover:text-white next-button"
+                    >
+                      <svg
+                        class="w-5 h-5"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M9 5l7 7-7 7"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+        </div>
+    </section>
+
+        <!--Contact -->
+    <section id="contact" class="contact">
+            <div class="max-width reveal">
+                <h2 class="title bigTitle">Contact</h2>
+                <div class="contact-content">
+                    <div class="column left">
+                        <div class="text">Get in Touch</div>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusantium aliquam dolor sequi ex ipsum fugit similique ut odio, nesciunt dolorem totam saepe eos obcaecati voluptatum distinctio voluptatem aliquid et cumque.</p>
+                        <div class="icons">
+                            <div class="row">
+                                <i class="fas fa-user"></i>
+                                <div class="info">
+                                    <div class="head">Name</div>
+                                    <div class="sub-title">Majdoule radoune</div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <i class="fa-solid fa-location-dot"></i>
+                                <div class="info">
+                                    <div class="head">Address</div>
+                                    <div class="sub-title">Ensam casablanca Av NIl .......</div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <i class="fa-solid fa-envelope"></i>
+                                <div class="info">
+                                    <div class="head">Email</div>
+                                    <div class="sub-title">chakiri@gmail.com</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column right">
+                        <div class="text">Send me a message</div>
+                        <form action="#">
+                            <div class="fields">
+                                <div class="field name">
+                                    <input type="text" name="name" id="name" placeholder="Name" required>
+                                </div>
+                                <div class="field email">
+                                    <input type="email" name="email" id="email" placeholder="E-mail" required>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <input type="text" name="subject" id="name" placeholder="subject" required>
+                            </div>
+                            <div class="field textArea">
+                                <textarea name="" id="" cols="30" rows="10" placeholder="Describe project" required></textarea>
+                            </div>
+                            <div class="button">
+                                <input type="submit" value="Envoyer message">
+                            </div>
+                        </form>
+                    </div>
+                    
+                   
+                </div>
+            </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="footer" class="footer">
+        © Copyright , Majdoule Radouane
+    </footer>
+    <script crossorigin="anonymous" defer  src="https://unpkg.com/swiper/swiper-bundle.min.js" ></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+    <script src="/js/portfolio/script.js" defer></script>
+</body>
+</html>

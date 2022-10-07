@@ -1,0 +1,337 @@
+/*Element set up*/
+:root {
+    --primary_color: #3B71FE;
+    --gray-color:#A0A4Ab;
+    --dark-theme-color:#262A31;
+    --white-color:#ffffff;
+    --text-color:#0E0E2c;
+    --light-gray : #606063;
+
+}
+/* poppins font import */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,300;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* ubuntu mono font import */
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@400;700&display=swap');
+
+/* ubunut font import */
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@400;700&display=swap');
+
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    font-family: 'ubuntu' ,sans-serif;
+}
+
+
+a:hover{
+    text-decoration: none;
+}
+
+
+/*Header*/
+.header{
+    width: 100%;
+    padding: 15px 0;
+    box-shadow: 2px 2px 11px -5px;
+}
+
+.max-width{
+    max-width: 1300px; /*the width of the begist screen*/
+    padding: 0 2.5em;
+    margin: auto;
+}
+
+.header .max-width {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.logo a{
+    color:black;
+    text-transform: uppercase;
+}
+
+.logo a span {
+    color: var(--primary_color);
+}
+
+
+
+.header .menu{
+    align-items: center;
+    margin: auto 0;
+}
+
+.header .menu li{
+    list-style: none;
+    display: inline-block;
+
+}
+
+.header .menu li a {
+    color:var(--text-color);
+    font-size: .8em;
+    margin-left: 18px;
+    transition: color .2s linear;
+}
+
+
+.header .menu li a:hover , .header .menu li a.active{
+    color: var(--primary_color);
+    border-bottom: 2px solid #3B71FE;
+}
+
+.logIn {
+    color:var(--white-color)!important;
+    background-color:var(--primary_color);
+    border: 1px solid transparent;
+    padding: 5px 15px;
+    border-radius: 4px;
+    text-align: center;
+    font-weight: 600;
+    margin: auto;
+}
+
+.logIn:hover{
+    color:var(--primary_color)!important;
+    background-color:var(--white-color);
+    border: 1px solid var(--primary_color);
+}
+
+.creetAccount{
+    padding: 5px 15px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+.creetAccount:hover{
+    border: 1px solid var(--primary_color);
+}
+
+
+/* hunberguer BTN */
+.header-btn{
+    font-size: 30px;
+    color: var(--primary_color);
+    cursor: pointer;
+    display: none;
+}
+
+
+/* Dropdown Button */
+.dropbtn {
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+  }
+  
+  /* The container <div> - needed to position the dropdown content */
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  /* Dropdown Content (Hidden by Default) */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  /* Links inside the dropdown */
+  .dropdown-content a {
+    color: black;
+    padding: 12px;
+    text-decoration: none;
+    display: block;
+    margin-left: 0px!important;
+  }
+  
+  /* Change color of dropdown links on hover */
+  .dropdown-content a:hover {background-color: #ddd;}
+  
+  /* Show the dropdown menu on hover */
+  .dropdown:hover .dropdown-content {display: block;}
+
+  body{
+    overflow-x: hidden;
+  }
+
+  /***666666666666666666666666666666666**/
+
+  .divContainer{
+    margin-top: 90px;
+    padding: 0 30px;
+    margin-bottom: 60px;
+  }
+
+  .divContainer h1 {
+    margin: 30px 0;
+    font-size: 30px;
+  }
+
+  .divContainer .date {
+    font-size: 12px;
+    color: gray;
+  }
+
+  .courimag {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+    object-position: center;
+  }
+
+
+  .divContainer .description {
+    font-family: ubuntu-mono;
+    margin-bottom: 20px;
+  }
+
+  .elemt{
+    width: 90%;
+    height: 350px;
+    display: block;
+    margin: 20px auto;
+  }
+
+
+  .demandAccessBTN {
+    margin-top: 30px;
+    outline: none;
+    border: 1px solid var(--primary_color);
+    width: 200px;
+    background-color: var(--primary_color);
+    color: white;
+    display: inline-block;
+    text-align: center;
+    padding: 5px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+
+  .demandAccessBTN:hover {
+    background-color:white;
+    color: var(--primary_color);
+
+  }
+
+.introduction h4{
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.accessCodeForm input[type="text"]{
+    width: 100%;
+    border: 1px solid lightgrey;
+    height: 38px;
+    padding: 3px 8px;
+    outline: none;
+    border-radius: 8px;
+}
+
+.accessCodeForm input[type="text"]:focus{
+    border: 1px solid var(--primary_color);
+}
+
+.cancel {
+    border: 1px solid gray;
+    height: 38px;
+    color: gray;
+    background-color: white;
+    border-radius: 8px;
+    width: 45%;
+    margin-top: 10px;
+}
+
+.valuder {
+    border: 1px solid transparent!important;
+    height: 38px;
+    color: white!important;
+    background-color: var(--primary_color)!important;
+    border-radius: 8px;
+    width: 45%;
+    margin-top: 10px;
+    float: right;
+}
+   
+
+.valuder:hover{
+    color: var(--primary_color)!important;
+    background-color: white!important;
+    border: 1px solid var(--primary_color)!important;
+}
+    
+.cancel:hover{
+    color: white;
+    background-color: gray;
+    border: 1px solid white;
+}
+
+.d{
+			cursor: not-allowed!important;
+			pointer-events: none; 
+			background: lightgray;
+			border: 1px solid #606060;
+			color: #606060;
+			opacity:.70;
+} 
+
+.smallScreenList{
+	display: none;
+}
+
+@media (max-width:950px ) {
+    .max-width {
+       padding: 0 50px; 
+    }
+    .header-btn{
+        display: block;
+        color: black;
+        z-index: 999;
+    }
+    
+    .header .menu{
+        position: fixed;
+        left:0;
+        top:0;
+        background: white;
+        height: 100vh;
+        width: 100%;
+        padding-top: 100px;
+        left: -100%;
+        z-index: 1999;
+    }
+
+	.menu .smallScreenList {
+		display: block;
+	}
+
+    .header .menu.active{
+        left: 0;
+    }
+
+    .header .menu li {
+        display: block;
+        margin-bottom: 20px;
+        text-align: center;
+
+    }
+    
+    .header .menu li a {
+        font-size: 1.3em;
+    }
+ 
+}

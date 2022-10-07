@@ -1,0 +1,288 @@
+/*Element set up*/
+:root {
+    --primary_color: #3B71FE;
+    --gray-color:#A0A4Ab;
+    --dark-theme-color:#262A31;
+    --white-color:#ffffff;
+    --text-color:#0E0E2c;
+    --light-gray : #606063;
+
+}
+/* poppins font import */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,300;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* ubuntu mono font import */
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@400;700&display=swap');
+
+/* ubunut font import */
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@600;700&display=swap');
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    font-family: 'ubuntu' ,sans-serif;
+}
+
+a:hover{
+    text-decoration: none;
+}
+
+
+/*Header*/
+.header{
+    width: 100%;
+    padding: 15px 0;
+    box-shadow: 2px 2px 11px -5px;
+}
+
+.max-width{
+    max-width: 1300px; /*the width of the begist screen*/
+    padding: 0 2.5em;
+    margin: auto;
+    background: transparent;
+}
+
+.header .max-width {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.logo a{
+    color:black;
+    text-transform: uppercase;
+}
+
+.logo a span {
+    color: var(--primary_color);
+}
+
+
+
+.header .menu{
+    align-items: center;
+    margin: auto 0;
+}
+
+.header .menu li{
+    list-style: none;
+    display: inline-block;
+
+}
+
+.header .menu li a {
+    color:var(--text-color);
+    font-size: .8em;
+    margin-left: 18px;
+    transition: color .2s linear;
+}
+
+.header .menu li a:hover{
+    color: var(--primary_color);
+}
+
+.logIn {
+    color:var(--white-color)!important;
+    background-color:var(--primary_color);
+    border: 1px solid transparent;
+    padding: 5px 15px;
+    border-radius: 4px;
+    text-align: center;
+    font-weight: 600;
+    margin: auto;
+}
+
+.logIn:hover{
+    color:var(--primary_color)!important;
+    background-color:var(--white-color);
+    border: 1px solid var(--primary_color);
+}
+
+.creetAccount{
+    padding: 5px 15px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+.creetAccount:hover{
+    border: 1px solid var(--primary_color);
+}
+
+
+
+/* hunberguer BTN */
+.header-btn{
+    font-size: 30px;
+    color: var(--primary_color);
+    cursor: pointer;
+    display: none;
+}
+
+
+
+/**********  COUR SECTION   *********/
+.topSection {
+    box-shadow: 5px 5px 20px rgba(0,0,0,0.2);
+    margin-bottom: 70px;
+    border-radius: 10px;
+}
+.cour .max-width {
+    padding: 40px 50px 0 50px;
+}
+
+.title {
+    text-align: center;
+    color: var(--text-color);
+    font-weight: 800;
+    font-family: 'poppins';
+}
+
+.topImage {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+    object-position: center;
+    border-radius: 10px;
+}
+
+
+.chapterCourese {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    margin-bottom: 40px;
+    margin-top: 90px;
+}
+
+ul li {
+    list-style: none;
+}
+
+.vedio {
+    width:100%;
+    height: 350px;
+    display: block;
+    margin: auto;
+    margin-bottom: 50px;
+}
+
+.sideBare {
+    width: 30%;
+    float: left;
+}
+
+.content {
+    width: 65%;
+    display: block;
+    float: right;
+}
+
+.footer {
+    margin: 40px 0 40px 0;
+    padding: 0 30px 0 30px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.content p {
+    font-family: 'ubuntu mono';
+    line-height: 19px;
+}
+
+.sideBare {
+    padding-left:15px;
+    height: 100%;
+}
+
+
+.sideBare ul li {
+	margin-right:20px;
+}
+.sideBare ul li a{
+    border: 1px solid #3B71FE;
+    width: 100%;
+    display: inline-block;
+    padding: 15px 0 15px 10px;
+    margin-bottom: 10px;
+    border-radius: 4px
+}
+
+
+.active2{
+    background-color: var(--primary_color);
+    color:white;
+    border: 1px solid #3B71FE!important;
+}
+
+.pdfContainer{
+	margin-bottom: 50px;
+}
+
+.secondeTitle{
+	margin: 50px 0px 30px 0px;
+	border-left: 5px solid #3B71FE;
+	background-color: #F7F5F2;
+	color:black;
+	padding : 10px 0 10px 5px;
+	border-radius:4px;
+	font-size:16px;
+}
+
+.docMarg {
+	margin-bottom: 18px;
+}
+
+
+
+@media (max-width:900px ) {
+	.header .max-width {
+		padding:  20px!important;
+	}
+	.max-width{
+	width: 100%;
+	padding:0 10px!important;
+	}
+	
+	.chapterCourese {
+	padding: 10px 10px;
+	width: 100%;
+	}
+	
+	.chapterCourese .content{
+	width:100% 
+	}
+	.sideBare {
+    display: none
+    
+	}
+	.footer {
+		margin: auto;
+		text-align: center;
+	}
+	.header-btn{
+		display: block;
+		color:black;
+	}
+	
+	.smallScreenList .menu  li{
+	display: block!important;
+	}
+	
+	.smallScreenList .menu li a {
+		color:var(--text-color);
+    font-size: 24px!important;
+    margin-left: 18px;
+    transition: color .2s linear;
+	}
+	
+	.smallScreenList .menu  li a:hover , .smallScreenList .menu  li a.active {
+		color: #3B71FE;
+	}
+	
+	
+}

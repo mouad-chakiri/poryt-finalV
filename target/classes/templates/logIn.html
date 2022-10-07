@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--  Font awsome v6.1.1  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"/>
+    
+    <!--  bootsrat v4.6.1  -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"/>    
+    
+    <!-- Style created by me-->
+    <link rel="stylesheet" href="/css/cour/courContent.css">
+    <link rel="stylesheet" href="/css/logInStyl.css">
+
+    <title>Majdoule Redouane</title>
+</head>
+<body>
+	<div th:insert="fragments/portfolioHeader.html"></div>
+	
+	<section class="logInSection">
+		<div class="logInContainer">
+			<h2>CONNEXION</h2>
+			<div th:if="${param.error}" class="errorDiv">
+				email et/ou mot de passe incorrect(s)
+			</div>
+			<form th:action="@{login}" method="post">
+				<div class="field">
+					<label for="email">E-mail</label>
+					<input type="email" required="required" name="username" id="email">
+				</div>
+				<div class="field">
+					<label for="password">Mot de passe</label>
+					<input type="password" required="required" name="password" id="password">
+				</div>
+				<div class="submitBTN">
+					<input type="submit" value="Log in">
+				</div>
+			</form>
+			<div class="bottom-parte grayColor" >
+			<span>Mot de passe oublié? </span>
+			<a th:href="@{/showReset}">	récupérer</a>
+			</div>
+			<div class="bottom-parte">
+			<span>si vous n'avez pas de compte ? </span>
+			<a th:href="@{creatAccount}">Créer un compte</a>
+			</div>
+			
+		</div>
+	</section>
+</body>
+</html>

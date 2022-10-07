@@ -1,0 +1,36 @@
+    	<nav class="navbar navbar-default top-navbar" role="navigation">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html">Admin</a>
+                </div>
+
+                <ul class="nav navbar-top-links navbar-right">
+                    <li class="dropdown" style="margin-right: 40px;">
+                        <a th:href="@{logout}"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                    </li>
+                </ul>
+            </nav>
+            <!--/. NAV TOP  -->
+            <nav class="navbar-default navbar-side" role="navigation">
+                <div class="sidebar-collapse">
+                    <ul class="nav" id="main-menu">
+                        <li>
+                            <a th:classappend="${currentPage}=='mainPage' ? active-menu : desactive-menu" th:href="@{/admin}"><i class="fa fa-desktop"></i> Over view</a>
+                        </li>
+                        <li>
+                            <a th:classappend="${currentPage}=='lesCourDadmin' ? active-menu : desactive-menu" th:href="@{/allCours}"><i class="fa-solid fa-book"></i> les Cours</a>
+                        </li>
+                        <li>
+                            <a th:classappend="${currentPage}=='categorie' ? active-menu : desactive-menu" th:href="@{/thematiques}" ><i class="fa-solid fa-bars-staggered"></i> les Thematiques</a>
+                        </li>
+                        <li>
+                            <a th:classappend="${currentPage}=='utilisateurList' ? active-menu : desactive-menu" th:href="@{/utilisateurs}" ><i class="fa-solid fa-graduation-cap"></i> Les utilisateurs</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>

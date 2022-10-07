@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+		xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+		xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--  Font awsome v6.1.1  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"/>
+    <!--  bootstrap v4.6.1  -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"/>    
+    <!-- Custome Style-->
+    <link rel="stylesheet" href="/css/cour/style.css">
+    <link rel="stylesheet" href="/css/cour/courContent.css">
+    <!-- Jquery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>cours</title>
+</head>
+<body>
+
+    
+
+	<div th:insert="fragments/portfolioHeader.html"></div>
+    <!-- COUR DETAILS SECTION  -->
+    <section class="cour">
+       <div class="max-width">
+        <div class="topSection">
+            <img th:src="@{'/getImage/'+${cours.Image.Id}}" alt="angular" class="topImage">
+            <h2 class="title" th:text="${cours.Titre}"></h2>
+            <div class="chapterCourese">
+            
+                <aside class="sideBare">
+                    <ul>
+                        <li th:each="chap:${chapitres}"><a th:href="@{'/coursContent/'+${cours.Id}+'/'+${chap.Id}}" th:class="${chap.Id == chapitre.Id ?'active2':''}">Chapitre <span th:text="${chap.Numero}"></span></a></li>
+                    </ul>
+                </aside>
+                
+                
+                <div class="content">
+                    <h3>Chapitre <span th:text="${chapitre.Numero}"></span> : <span th:text="${chapitre.Title}"></span> </h3>
+                	<p th:text="${chapitre.Description}"></p>
+                	
+                <div class="pdfContainer">
+                <h5 th:if="${documents.size != 0}" class="secondeTitle">PDF du cours</h5>
+                <div th:each="d:${documents}" class="docMarg">
+                    <a th:href="@{'/getFile/'+${d.Id}}" target="_blank" th:if="${d.typeDoc== 'application/pdf'}"><i class="fa-solid fa-file-pdf"></i> <span th:text="${d.nomDoc}"></span></a>
+                    <a th:href="@{'/getFile/'+${d.Id}}" target="_blank" th:if="${d.typeDoc != 'application/pdf'}"><i class="fa-solid fa-file-arrow-down"></i> <span th:text="${d.nomDoc}"></span></a>
+                </div>
+                </div>
+                
+                <div class="pdfContainer">
+                <h5 th:if="${videos.size != 0}" class="secondeTitle">les videos associer au cours</h5>
+                	<iframe th:each="v:${videos}" th:src="${v.Url}" class="vedio">
+                	</iframe>
+                </div>
+
+
+                <br><br><br>
+                <div class="footer">
+                    <a th:href="@{'/coursContent/'+${cours.Id}+'/'+${chapitre.Id}(num=${chapitre.Numero},signe=-1)}"> <i class="fa-solid fa-arrow-left"></i>  Precedent</a>
+                    <a th:href="@{'/coursContent/'+${cours.Id}+'/'+${chapitre.Id}(num=${chapitre.Numero},signe=1)}">Suivant <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+                </div>
+            </div>
+        </div>
+        
+       </div>
+    </section>
+    <div th:insert="fragments/footer.html"></div>
+    <script src="/js/cour/script.js"></script>
+</body>
+</html>

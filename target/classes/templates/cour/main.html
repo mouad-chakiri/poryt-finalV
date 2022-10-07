@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+		xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+		xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--  Font awsome v6.1.1  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"/>
+    <!--  bootsrat v4.6.1  -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"/>    
+    <!-- Style created by me-->
+    <link rel="stylesheet" href="/css/cour/style.css">
+    <!-- Jquery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>cour</title>
+</head>
+<body>
+	<div th:replace="fragments/portfolioHeader.html"></div>
+    <!--Hero section -->
+    <section class="hero">
+        <div class="max-width">
+            <div class="text-container">
+                <h2 class="text1">Bienvenue</h2>
+                <h3 class="text2">Dans nos cours</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat placeat dignissimos ipsa maxime consequatur odit! Dolorum maiores odit porro est tempora quos quisquam eligendi distinctio illo ipsum. Culpa, ut ea.</p>
+                <a class="exploreCour" href="#cour">Explorer les cours <i class="fa-solid fa-angle-down"></i></a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Cours section -->
+    <section class="cours" id="cours">
+        <div class="max-width">
+            <div class="title" id="cour">
+                <h1><i class="fa-solid fa-bookmark"></i>  cours</h1>
+                <p style="color:black; font-size:14px">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla repudiandae perferendis commodi! </p>
+            </div>
+            <div class="categorieSection">
+               <span><a th:href="@{cours#cours(idT=null)}" class="categorie">All</a></span>
+               <span><a th:each="t:${thematiques6}" th:href="@{/cours#cours(idT=${t.Id})}" th:text="${t.nomThematique}"  class="categorie"></a></span>
+               
+                <span class="drop">
+                <a class="categorie more">More <i class="fa-solid fa-arrow-down"></i></a>
+                <ul>
+                  <li th:each="tm:${thematiques}"><a th:href="@{cours#cours(idT=${tm.Id})}" th:text="${tm.nomThematique}" ></a></li>
+                </ul>
+              </span>
+            </div>
+            <div class="courGrid">
+                <div th:each="t:${cours}" class="courCard">
+                    <img th:src="@{'/getImage/'+${t.Image.Id}}" alt="cours Picture" class="courImg" />
+                    <div class="textContainer">
+                        <h3 class="courTile" th:text="${t.Titre}"></h3>
+                        <span class="date">créé en : <span th:text="${#dates.format(t.Created, 'dd-MM-yyyy')}"></span> </span>
+                        <p class="description" th:text="${t.getSomeDescription()}"></p>
+                        <a class="seeMore" th:href="@{'/coursDetails/'+${t.Id}}">voir plus</a>
+                    </div>
+                </div>
+                     
+            </div>
+            <div class="paginationContainer">
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+                      <li class="page-item"><a class="page-link" th:href="@{/cours#cours(page=${currentPage-1},idT=${idT})}">Précédent</a></li>
+                      <li class="page-item" th:each="page,status:${pages}" ><a class="page-link" th:href="@{/cours#cours(page=${status.index},idT=${idT},totPages=${totPages})}" th:text="${status.index+1}" th:class="${status.index == currentPage ?'page-link actovePageBTN':'page-link'}" ></a></li>
+                      <li class="page-item"><a class="page-link" th:href="@{/cours#cours(page=${currentPage+1},idT=${idT},totPages=${totPages})}">Suivant</a></li>
+                    </ul>
+                  </nav>
+            </div>
+        </div>
+    </section>
+	<div th:insert="fragments/footer.html"></div>
+    <script src="/js/cour/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+</body>
+</html>
+         

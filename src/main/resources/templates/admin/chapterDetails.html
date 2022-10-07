@@ -1,0 +1,117 @@
+<!DOCTYPE >
+<html lang="en" xmlns:th="http://www.thymeleaf.org" layout:decorator="layout/default" th:with="currentPage='lesCourDadmin'">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Admin</title>
+    <link href="https://cdn.usebootstrap.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />    <!-- Morris Chart Styles-->
+    <link href="/css/admin/style.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="wrapper">
+        <div th:insert="fragments/adminHeader" th:with="section=overVeiw"></div>
+        <div id="page-wrapper">
+            
+            <div class="row">
+                <div class="panel-heading" style="margin-top: 10px">
+                    <h1 class="page-header">Chapitre <span th:text="${chapitre.Numero}"></span> : <span th:text="${chapitre.Title}"></span></h1>
+                </div>
+                <div class="panel">
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <div class="addNewElement">
+                                <a onclick="showAddStudentsPart()" class="btn btn-primary">Ajouter element</a>
+                                <div class="hide elementConatainer" id="addEtudintContainer">
+                                    
+                                    <form th:action="@{'addContent'}" method="post" enctype="multipart/form-data">
+                                    	<input type="hidden" th:value="${chapitre.Id}" name="id">
+                                        <div class="form-group">
+                                            <label for="ytLinks">Liens YouTube :</label>
+                                            <textarea name="links" id="ytLinks" cols="20" rows="10" class="form-control" style="resize: none;" placeholder="Ajouter les liens Youtube et entre chaque un lien mettait ; "></textarea>
+                                          </div>
+                                        
+                                        <div class="form-group">
+                                            <label for="image">Les fichiers:</label>
+                                            <input type="file" class="form-control" id="image" multiple name="files">
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Ajouter</button>
+                                        <button type="button" onClick="showAddStudentsPart()" class="btn btn-secondary">Fermer</button>
+                                    </form>
+                                </div>
+                            </div>
+
+
+
+                            <!--  Update form --->
+                            <form th:action="@{'/updateChapitre'}" method="post" class="secondeFrom">
+								<input type="hidden" th:value="${chapitre.Id}" name = "id">
+                                
+                                <div class="element">
+                                    <div class="subElemnt">
+                                        <label for="DescriptionChapter">Numero</label>
+                                        <input type="text" class="form-control displayInline" name="numero" id="DescriptionChapter" th:value="${chapitre.Numero}">
+                                    </div>
+                                </div>
+                                
+                                <div class="element">
+                                    <div class="subElemnt">
+                                        <label for="DescriptionChapter">Titre</label>
+                                        <input type="text" class="form-control displayInline" name="titre" id="DescriptionChapter" th:value="${chapitre.Title}">
+                                    </div>
+                                </div>
+                                
+                                <div class="element">
+                                    <div class="subElemnt">
+                                        <label for="DescriptionChapter">Description</label>
+                                        <input type="text" class="form-control displayInline" name="description" id="DescriptionChapter" th:value="${chapitre.Description}">
+                                    </div>
+                                </div>
+
+                                <div class="element" th:each="d:${documents}">
+                                    <div class="subElemnt" style="position: relative ;">
+                                        <label for="">PDF</label>
+                                        <input type="text" class="form-control displayInline" th:value="${d.NomDoc}" readonly="readonly">
+                                        <label for="newImage" style="cursor: pointer ; position: absolute;top: 38px ; right: 10px"><a th:href="@{/deleteContent(idCon=${d.Id},idCh=${chapitre.Id})}" onclick="return confirm('etes vous sure')" style="color:#C9302C"><i class="fa-solid fa-trash"></i></a></label>
+                                    </div>
+                                </div>
+
+                                <div class="element" th:each="v:${videos}">
+                                	<div class="subElemnt" style="position: relative ;">
+                                        <label for="">video</label>
+                                        <input type="text" class="form-control displayInline"  th:value="${v.Url}" readonly="readonly">
+                                        <label for="newImage" style="cursor: pointer ; position: absolute;top: 38px ; right: 10px"><a th:href="@{/deleteContent(idCon=${v.Id},idCh=${chapitre.Id})}" onclick="return confirm('etes vous sure')" style="color:#C9302C"><i class="fa-solid fa-trash"></i></a></label>
+                                    </div>
+                                    <iframe th:src=${v.Url}></iframe>
+                                </div>
+
+                                <div>
+                                    <input type="submit" value="Mettre à jour" class="btn btn-primary">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                
+                
+            </div>
+        </div>
+        
+    </div>
+    
+	<script src="/js/admin/script.js"></script>
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+		crossorigin="anonymous"></script>
+	<script src="/js/admin/jquery-1.10.2.js"></script>
+	<script src="/js/admin/bootstrap.min.js"></script>
+</body>
+</html>

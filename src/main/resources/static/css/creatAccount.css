@@ -1,0 +1,76 @@
+.creatAccoutSection {
+	padding-bottom: 40px;
+	padding-top: 100px;
+}
+
+.creatAccoutSection h2 {
+	margin-bottom: 40px;
+	text-transform: uppercase;
+	margin-top: 90px
+}
+.creatAccoutSection{
+	margin-top :50px;
+	margin-bottom:90px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform:translate(-50%,-50%);
+	max-width: 900px;
+	z-index: 9999;
+}
+
+
+.creatAccoutSection form .field{
+	margin-bottom: 30px;
+}
+
+.creatAccoutSection form .field input {
+	width: 100%;
+	height: 45px;
+	padding: 2px 8px;
+	outline: none;
+	border-radius: 6px;
+	border: 1px solid lightgray;
+}
+
+
+.creatAccoutSection form .field input:active , .creatAccoutSection form .field input:focus{
+	border: 1px solid blue;
+}
+
+
+.creatAccoutSection form  .submitBTN {
+	height: 45px;
+}
+
+.creatAccoutSection form .submitBTN input{
+	height: 100%;
+	width: 100%;
+	outline: none;
+	border: 1px solid transparent;
+	background:  #3B71FE;
+	color:white;
+}
+
+.creatAccoutSection form .submitBTN input:hover{
+	border: 1px solid #3B71FE;
+	background:  white;
+	color:#3B71FE;
+}
+
+.bottom-parte {
+	margin-top : 30px;
+	text-align: center;
+}
+
+.errorDiv {
+	border :1px solid red;
+	width: 100%;
+	font-size: 12px;
+	color: black;
+	text-align: center;
+	padding: 20px;
+	margin: 18px 0;
+	background-color: pink;
+}
+

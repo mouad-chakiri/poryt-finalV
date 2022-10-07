@@ -1,0 +1,118 @@
+<!DOCTYPE >
+<html lang="en" xmlns:th="http://www.thymeleaf.org" layout:decorator="layout/default" th:with="currentPage='lesCourDadmin'">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Admin</title>
+    <link href="https://cdn.usebootstrap.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />    <!-- Morris Chart Styles-->
+    <link href="/css/admin/style.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="wrapper">
+        <div th:insert="fragments/adminHeader" th:with="section=overVeiw"></div>
+        <div id="page-wrapper">
+            <h1 th:text="${cours.Titre}"></h1>
+            <div class="groupTopChapterBtns">
+                <a onclick="showAddStudentsPart()" class="btn btn-primary">Ajouter etudiant au cour</a> 
+                <a class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Ajouter chapitre</a>
+                <a th:href="@{/coursUsers(idC=${cours.Id})}" class="btn btn-primary">Liste des Etudiants du cours</a>
+            </div>
+            <div id="addEtudintContainer" class="hide marginBTM">
+                <h3 class="marginBTM10">Ajouter des etudiants au cours</h3>
+                <form th:action="@{/addUsersToCours(idC=${cours.Id})}" method="post" class="addStudentForm">
+                    <textarea name="emails" id="student" cols="30" rows="10" placeholder="S'il y a plusieurs étudiants  mettre ; entre chacune"></textarea>
+                    <input type="submit" value="+">
+                </form>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="marginTop">
+                        <h2>liste des chapitres</h2>
+                    </div>
+                    
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Chapitre</th>
+                                        <th>Titre</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    
+                                    <tr class="tableRow" th:each="c:${chapitres}">
+                                        <td>chapitre <span th:text="${c.Numero}"></span></td>
+                                        <td class="lastColumn">
+                                            <span th:text="${c.Title}"></span>
+                                            <div class="dropdown" style="padding-right: 30px">
+                                                <i class="fa-solid fa-ellipsis-vertical dots" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
+                                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                    <a class="dropdown-item dropDownLink diviseur" th:href="@{/editChapitre(idChp=${c.Id})}" style="display: block">Modifier</a>
+                                                    <a class="dropdown-item dropDownLink" th:href="@{/deleteChapitre(idC=${cours.Id},idChap=${c.Id})}" style="display: block">Supprimer</a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                    
+                    
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <h3 class="modal-title" id="exampleModalLabel">Ajouter Chapitre</h3>
+        </div>
+        <div class="modal-body">
+            <form th:action="@{'/saveChapitre'}" method="post" enctype="multipart/form-data">
+                <input type="hidden" th:value="${cours.Id}" name="idC">
+                <div class="form-group">
+                  <label for="chapterNumber">Numéro de chapitre :</label>
+                  <input type="text" class="form-control" id="chapterNumber" name="numero">
+                </div>
+                <div class="form-group">
+                    <label for="chapterTitle">Titre:</label>
+                    <input type="text" class="form-control" id="chapterTitle" name="titre">
+                </div>
+                <div class="form-group">
+                    <label for="chapterDescription">Description:</label>
+                    <input type="text" class="form-control" id="chapterDescription" name="description">
+                </div>
+                <div class="form-group">
+                    <label for="ytLinks">Liens YouTube :</label>
+                    <textarea id="ytLinks" name="links" cols="20" rows="10" class="form-control" style="resize: none;" placeholder="S'il y a plusieurs liens  mettre ; entre chacune"></textarea>
+                  </div>
+                
+                  <div class="form-group">
+                    <label for="fichier">Fichier:</label>
+                    <input type="file" class="form-control" id="fichier" multiple name="files">
+                </div>
+                <button type="submit" class="btn btn-primary">Ajouter</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+              </form>
+        </div>
+      </div>
+    </div>
+  </div>
+   	<script src="/js/admin/script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	<script src="/js/admin/jquery-1.10.2.js"></script>
+    <script src="/js/admin/bootstrap.min.js"></script>
+    
+</body>
+</html>

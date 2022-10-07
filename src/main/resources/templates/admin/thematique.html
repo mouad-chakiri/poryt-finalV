@@ -1,0 +1,96 @@
+<!DOCTYPE >
+<html lang="en" xmlns:th="http://www.thymeleaf.org" layout:decorator="layout/default" th:with="currentPage='categorie'">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin</title>
+    <link href="https://cdn.usebootstrap.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />    <!-- Morris Chart Styles-->
+    <link href="/css/admin/style.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div id="wrapper">
+        <div th:insert="fragments/adminHeader" th:with="section=overVeiw"></div>
+            <div id="page-wrapper">
+            <div class="row">
+                <div class="panel-heading" id="demande">
+                    <h1 class="page-header">Les thematiques</h1>
+                </div>
+
+                <div class="col-md-12">
+                    <a href="#" class="btn btn-primary" style="margin:40px 0 20px 0;" data-toggle="modal" data-target="#exampleModal">Ajouter thematique</a>
+
+                    <!-- Advanced Tables -->
+                    <div class="panel panel-default">
+                            <div class="table-responsive">
+                                <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                    <thead>
+                                        <tr>
+                                            <th>Titre</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr th:each="t:${thematiques}">
+                                            <td>
+                                                <span th:text="${t.NomThematique}"></span>
+                                                <a th:href="@{deleteThematique(idTh=${t.Id})}" class="btn btn-danger" style="float:right" onclick="return confirm('etes vous sure')"><i class="fa-solid fa-trash-can"></i></a>
+                                            </td>
+                                        </tr>
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                            
+                    </div>
+                    <!--End Advanced Tables -->
+                    <nav aria-label="Page navigation example" style="width: 100%;text-align: center;margin-top: 30px;border-top:1px solid lightgray ;">
+                        <ul class="pagination pg-blue">
+                          <li class="page-item">
+                            <a th:href="@{/thematiques(page=${currentPage2-1})}" class="page-link" tabindex="-1">précédent</a>
+                          </li>
+                          <li class="page-item" th:each="page,status:${pages}"  th:class="${status.index == currentPage2 ?'active':''}"><a class="page-link" th:href="@{/thematiques(page=${status.index},totPages=${totPages})}" th:text="${status.index+1}"></a></li>
+                          <li class="page-item">
+                            <a th:href="@{/thematiques(page=${currentPage2+1},totPages=${totPages})}" class="page-link">suivant</a>
+                          </li>
+                        </ul>
+                      </nav>
+                </div>
+            </div>            
+        </div>
+    </div>
+
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+          <h2 class="modal-title" id="exampleModalLabel">Ajouter thematique</h2>
+        </div>
+        <div class="modal-body">
+            <form th:action="@{saveThematique}" method="post">
+                <div class="form-group">
+                  <label for="courName">Titre du thematique:</label>
+                  <input type="text" class="form-control" name="nomThematique" id="courName">
+                </div>
+                <button type="submit" class="btn btn-primary">Ajouter</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+              </form>
+        </div>
+      </div>
+    </div>
+  </div>
+   	<script src="/js/admin/script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	<script src="/js/admin/jquery-1.10.2.js"></script>
+    <script src="/js/admin/bootstrap.min.js"></script>
+</body>
+
+</html>

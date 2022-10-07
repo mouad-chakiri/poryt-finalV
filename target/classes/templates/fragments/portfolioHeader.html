@@ -1,0 +1,37 @@
+<header class="header">
+        <div class="max-width">
+                <h3 class="logo"><a href="#"><span>M</span>ajdoul <span>R</span>adouane</a></h3>
+                <ul class="menu">
+                    <li><a th:href="@{'/cours'}" class="active">ACCUEIL</a></li>
+                    <li><a th:href="@{'/index'}">PORTFOLIO</a></li>
+                </ul>
+                <ul class="menu">
+                    <li><a th:href="@{'/login'}" sec:authorize="!isAuthenticated()" class="logIn">Se Connecter</a></li>
+                    <li><a th:href="@{creatAccount}" sec:authorize="!isAuthenticated()" class="creetAccount">Creer un compte</a></li>
+                    <li style="margin-left:30px">
+                        <div class="dropdown" sec:authorize="isAuthenticated()">
+                            <span class="dropbtn"><i class="fa-solid fa-user"></i><i class="fa-solid fa-angle-down" style="margin-left: 5px"></i></span><span sec:authorize="isAuthenticated()" sec:authentication="name"></span>
+                            <div class="dropdown-content">
+                              <a th:href="@{'/userCours'}">Mes cours</a>
+                              <a th:href="@{'/userProfile'}">Profil</a>
+                              <a th:href="@{'/logout'}">se deconnecter</a>
+                            </div>
+                          </div>
+                          
+                          <div class="smallScreenList" sec:authorize="isAuthenticated()">
+                            <ul class="menu">
+                            	<li><a>Hi ,<span sec:authorize="isAuthenticated()" sec:authentication="name"></span></a></li>
+                            	<li><a th:href="@{'/cours'}">ACCUEIL</a></li>
+                            	<li><a th:href="@{'/userCours'}">Mes cours</a></li>
+                            	<li><a th:href="@{'/userProfile'}">Profil</a></li>
+                            	<li><a th:href="@{'/logout'}">se deconnecter</a></li>
+                            </ul>
+                          </div>
+                    </li> 
+                </ul>
+                
+        <div class="header-btn">
+            <i class="fas fa-bars"></i>
+        </div>
+    </div>
+</header>
